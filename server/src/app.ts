@@ -5,13 +5,15 @@ import morgan from 'morgan';
 import bodyParser from 'body-parser';
 import { connectDB } from './config/db';
 import { errorHandler, notFoundHandler } from './middlewares/errorHandlers';
-import { routes } from './routes/routes';
+import  shortLinkRoute  from './modules/routes/shortLinkRoute';
 
 // create the Express app
 const app = express();
 
 // connect to the database
 connectDB();
+
+app.use(bodyParser.urlencoded({ extended: true }));
 
 // use middlewares
 app.use(cors());
@@ -20,7 +22,7 @@ app.use(morgan('tiny'));
 app.use(bodyParser.json());
 
 // use routes
-app.use('/', routes);
+app.use('/', shortLinkRoute);
 
 // handle 404 errors
 app.use(notFoundHandler);

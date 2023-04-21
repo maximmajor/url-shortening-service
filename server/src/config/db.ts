@@ -1,10 +1,11 @@
 import mongoose, { ConnectOptions } from 'mongoose';
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 interface CustomConnectOptions extends ConnectOptions {
   useNewUrlParser: boolean;
   useUnifiedTopology: boolean;
-  useCreateIndex: boolean;
-  useFindAndModify: boolean;
 }
 
 export const connectDB = async () => {
@@ -12,8 +13,6 @@ export const connectDB = async () => {
     await mongoose.connect(process.env.MONGO_URI!, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
-      useCreateIndex: true,
-      useFindAndModify: false,
     } as CustomConnectOptions);
     console.log('Connected to database');
   } catch (error: any) {

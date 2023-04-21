@@ -1,23 +1,24 @@
 import mongoose from 'mongoose';
-import { IShortLink } from '../interfaces/shortLink';
+import { IShortLink } from '../interfaces/shortLinkModel';
 
 const shortLinkSchema = new mongoose.Schema<IShortLink>(
     { 
-        riginalUrl: {
+        originalUrl: {
             type: String,
             required: true,
             trim: true,
         },
         shortUrl: {
             type: String,
-            required: true,
             trim: true,
+            unique: true 
         },  
         ShortUrlPart: {
             type: String,
-            required: true,
             trim: true,
+            unique: true,
         },
+
     },
     {
         timestamps: true,
@@ -28,5 +29,5 @@ shortLinkSchema.method("toJSON", function() {
     object.id = _id;
     return object;
   });
-const shortLink = mongoose.model('shortLink', shortLinkSchema);
-export default shortLink;
+const shortLinkModel = mongoose.model('shortLink', shortLinkSchema);
+export default shortLinkModel;
