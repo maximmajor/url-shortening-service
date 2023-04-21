@@ -7,9 +7,7 @@ class ShortLinkRepository {
 
 
   public async findOneByOriginalUrl(originalUrl: string): Promise<IShortLink | null> {
-    console.log(originalUrl)
     const findOriginalUrl = await this.shortLinkModel.findOne({ originalUrl });
-    console.log(findOriginalUrl)
     return findOriginalUrl
 
   }
