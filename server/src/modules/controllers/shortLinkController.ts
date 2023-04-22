@@ -66,7 +66,6 @@ class shortLinkController {
 
   public async redirectToOriginalUrl(req: Request, res: Response): Promise<void> {
     try {
-      console.log(req.params)
       const { urlPath } = req.params;
       if (!urlPath) {
         res.status(400).json({ error: 'URL path is required' });

@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from 'express';
-import { HttpException } from '../exceptions/HttpException';
+import { HttpException } from './HttpException';
 
 export const notFoundHandler = (req: Request, res: Response, next: NextFunction) => {
   const error = new HttpException(404, 'Resource not found');
