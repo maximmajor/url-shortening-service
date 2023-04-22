@@ -3,7 +3,7 @@ import mongoose from 'mongoose';
 export interface IShortLink extends mongoose.Document {
   originalUrl: string;
   shortUrl: string;
-  ShortUrlPart: string;
+  shortUrlPath: string;
   createdAt: Date;
   updatedAt: Date;
 }

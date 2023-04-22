@@ -13,7 +13,7 @@ const shortLinkSchema = new mongoose.Schema<IShortLink>(
             trim: true,
             unique: true 
         },  
-        ShortUrlPart: {
+        shortUrlPath: {
             type: String,
             trim: true,
             unique: true,

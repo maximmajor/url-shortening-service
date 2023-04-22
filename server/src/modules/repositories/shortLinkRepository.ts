@@ -12,8 +12,8 @@ class ShortLinkRepository {
   }
 
 
-  public async shortUrlPart(ShortUrlPart: string): Promise<IShortLink | null> {
-    const shortUrlPart = await this.shortLinkModel.findOne({ ShortUrlPart });
+  public async shortUrlPart(shortUrlPath: string): Promise<IShortLink | null> {
+    const shortUrlPart = await this.shortLinkModel.findOne({ shortUrlPath });
     return shortUrlPart
   }
 
@@ -28,7 +28,7 @@ class ShortLinkRepository {
     const newShortLink = {
       originalUrl: originalUrl,
       shortUrl: `${baseUrl}${generateShortUrlPath}`,
-      ShortUrlPart: generateShortUrlPath
+      shortUrlPath: generateShortUrlPath
     };
     const createShortUrl = await this.shortLinkModel.create(newShortLink);
     return createShortUrl

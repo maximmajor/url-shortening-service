@@ -46,17 +46,17 @@ class shortLinkController {
 
   public async statistic(req: Request, res: Response): Promise<void> {
     try {
-      const { urlPath } = req.params;
-      if (!urlPath) {
+      const { urlpath } = req.params;
+      if (!urlpath) {
         res.status(400).json({ error: 'URL path is required' });
         return
       }
-      const urlStat = await this.shortLinkRepository.shortUrlPart(urlPath);
+      const urlStat = await this.shortLinkRepository.shortUrlPart(urlpath);
       if (!urlStat) {
         res.status(404).json({ error: 'Short URL not found' });
         return
       }
-      res.json({ originalUrl: urlStat.originalUrl, shortUrl: urlStat.shortUrl, ShortUrlPart: urlStat.ShortUrlPart, createdAt: urlStat.createdAt, updatedAt: urlStat.updatedAt });
+      res.json({ originalUrl: urlStat.originalUrl, shortUrl: urlStat.shortUrl, shortUrlPath: urlStat.shortUrlPath, createdAt: urlStat.createdAt, updatedAt: urlStat.updatedAt });
     } catch (err) {
       console.error(err);
       res.status(500).json({ error: 'Internal server error' });
@@ -66,12 +66,12 @@ class shortLinkController {
 
   public async redirectToOriginalUrl(req: Request, res: Response): Promise<void> {
     try {
-      const { urlPath } = req.params;
-      if (!urlPath) {
+      const { urlpath } = req.params;
+      if (!urlpath) {
         res.status(400).json({ error: 'URL path is required' });
         return
       }
-      const urlStat = await this.shortLinkRepository.shortUrlPart(urlPath);
+      const urlStat = await this.shortLinkRepository.shortUrlPart(urlpath);
 
       if (!urlStat) {
         res.status(404).json({ error: 'Short URL not found' });
