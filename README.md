@@ -67,6 +67,7 @@ Once the server is running, you can interact with it using a tool like Postman o
 
 
 ##                      FILE STTRUCTURE
+```
 ├── src/
 │   ├── ShortLink/
 │   │   ├── models/
@@ -92,7 +93,7 @@ Once the server is running, you can interact with it using a tool like Postman o
 │   └── test/
 │       └── shortLink.test.ts
 └──
-
+```
 ## Breakdown of what each folder and file contains:
 1. src/: 
    This directory contains all the source code for the project.
