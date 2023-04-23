@@ -1,9 +1,8 @@
-# url-shortening-service
-ShortLink is a URL shortening service where you enter a URL such as https://indicina.co and it returns a short URL such as http://short.est/GeAi9K. Visiting the shortened URL should redirect the user to the long URL. Using the example above, visiting http://short.est/GeAi9K should redirect the user to https://indicina.co.
+TThis Project is a URL shortening service where you enter a URL such as https://indicina.co and it returns a short URL such as http://short.est/GeAi9K. Visiting the shortened URL should redirect the user to the long URL. Using the example above, visiting http://short.est/GeAi9K should redirect the user to https://indicina.co.
 
 
 
-## To run and test the code, follow these steps:
+### To run and test the code, follow these steps:
 ```
 1. Clone the repository from GitHub:
 git clone https://github.com/maximmajor/url-shortening-service.git 
@@ -16,12 +15,14 @@ git clone https://github.com/maximmajor/url-shortening-service.git
 5. run yarn tsc
 6. run yarn start
    This will start the server and listen for incoming requests.
-7. run yarn test or yarn test --watchAll  
+
+   To run the test cases
+1. run yarn test or yarn test --watchAll  
    The "--watchAll" flag tells Jest to run all tests in the project and to continue watching for file changes to re-run the tests automatically.
 ```
 
 
-##                         TO INTERACT WITH THE SERVER:
+###                         TO INTERACT WITH THE SERVER:
 ```
 Once the server is running, you can interact with it using a tool like Postman or a browser extension. Here are some of the requests:
 1. Encode a URL:
@@ -45,7 +46,7 @@ Once the server is running, you can interact with it using a tool like Postman o
    GET http://localhost:<port-number>/:urlpath
 ```
 
-## Explanation of each endpoint 
+### Explanation of each endpoint 
 ```
 1. router.post('/encode'): 
    This endpoint is used to encode a long URL into a short URL. It is a POST request that takes a long URL in the request body and returns a JSON response containing the short URL.
@@ -63,7 +64,7 @@ Once the server is running, you can interact with it using a tool like Postman o
 
 
 
-##                      FILE STTRUCTURE
+###                      FILE STTRUCTURE
 ```
 ├── src/
 │   ├── ShortLink/
@@ -91,7 +92,7 @@ Once the server is running, you can interact with it using a tool like Postman o
 │       └── shortLink.test.ts
 └──
 ```
-## Breakdown of what each folder and file contains:
+### Breakdown of what each folder and file contains:
 ```
 1. src/: 
    This directory contains all the source code for the project.
@@ -151,7 +152,7 @@ Once the server is running, you can interact with it using a tool like Postman o
 
 
 
-##                  TECHNOLOGY USE
+###                  TECHNOLOGY USE
 ```
 1. Node.js: a JavaScript runtime environment that allows running JavaScript code outside of a web browser
 2. Express.js: a popular web application framework for Node.js used for building APIs and web applications
