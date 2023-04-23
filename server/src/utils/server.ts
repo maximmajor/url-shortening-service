@@ -4,7 +4,7 @@ import helmet from 'helmet';
 import morgan from 'morgan';
 import bodyParser from 'body-parser';
 import { errorHandler, notFoundHandler } from '../middlewares/errorHandlers';
-import shortLinkRoute from '../modules/routes/shortLinkRoute';
+import shortLinkRoute from '../shortLink/routes/shortLinkRoute';
 
 function createServer() {
     const app = express();
