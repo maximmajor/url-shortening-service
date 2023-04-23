@@ -4,11 +4,14 @@ ShortLink is a URL shortening service where you enter a URL such as https://indi
 
 
 ## To run and test the code, follow these steps:
-
+```
 1. Clone the repository from GitHub:
 git clone https://github.com/maximmajor/url-shortening-service.git 
+```
+
 
 ## To start the server
+```
 1. on your terminal, cd into the server directory (cd server)
 2. run yarn to Install dependencies:
 3. Set environment variables:
@@ -18,15 +21,17 @@ git clone https://github.com/maximmajor/url-shortening-service.git
 4. run yarn tsc
 5. run yarn start
    This will start the server and listen for incoming requests.
-
+```
 
 ## To Test the Server endpoints:
+```
 1. run yarn test or yarn test --watchAll  
    The "--watchAll" flag tells Jest to run all tests in the project and to continue watching for file changes to re-run the tests automatically.
-
+```
 
 
 ##                         TO INTERACT WITH THE SERVER:
+```
 Once the server is running, you can interact with it using a tool like Postman or a browser extension. Here are some of the requests:
 1. Encode a URL:
    POST http://localhost:<port-number>/encode
@@ -47,9 +52,10 @@ Once the server is running, you can interact with it using a tool like Postman o
 
 4. Redirect to the original URL:
    GET http://localhost:<port-number>/:urlpath
-
+```
 
 ## Explanation of each endpoint 
+```
 1. router.post('/encode'): 
    This endpoint is used to encode a long URL into a short URL. It is a POST request that takes a long URL in the request body and returns a JSON response containing the short URL.
 
@@ -61,7 +67,7 @@ Once the server is running, you can interact with it using a tool like Postman o
 
 4. router.get('/:urlpath?'):
    This endpoint is used to redirect a short URL to its original long URL. It is a GET request that takes a short URL path parameter and redirects the user to the original long URL.
-
+```
 
 
 
@@ -95,6 +101,7 @@ Once the server is running, you can interact with it using a tool like Postman o
 └──
 ```
 ## Breakdown of what each folder and file contains:
+```
 1. src/: 
    This directory contains all the source code for the project.
 
@@ -149,11 +156,12 @@ Once the server is running, you can interact with it using a tool like Postman o
 
 18. shortLink.test.ts:
     contains test cases to ensure the short link feature works as expected
-
+```
 
 
 
 ##                  TECHNOLOGY USE
+```
 1. Node.js: a JavaScript runtime environment that allows running JavaScript code outside of a web browser
 2. Express.js: a popular web application framework for Node.js used for building APIs and web applications
 3. TypeScript: a superset of JavaScript that adds optional static typing and other features to JavaScript code
@@ -161,3 +169,4 @@ Once the server is running, you can interact with it using a tool like Postman o
 5. Mongoose: a Node.js library used for modeling and interacting with MongoDB databases
 6. Jest: a JavaScript testing framework used for unit and integration testing of Node.js applications
 7. Supertest: a library used for testing Node.js HTTP servers such as Express.js applications1
+```
