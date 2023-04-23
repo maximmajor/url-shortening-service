@@ -7,25 +7,16 @@ ShortLink is a URL shortening service where you enter a URL such as https://indi
 ```
 1. Clone the repository from GitHub:
 git clone https://github.com/maximmajor/url-shortening-service.git 
-```
-
-
-## To start the server
-```
-1. on your terminal, cd into the server directory (cd server)
-2. run yarn to Install dependencies:
-3. Set environment variables:
+2. on your terminal, cd into the server directory (cd server)
+3. run yarn to Install dependencies:
+4. Set environment variables:
    Create a .env file at the root of the project directory and add the following environment variables:
    MONGODB_URI=<mongodb-uri> 
    Replace <mongodb-uri> with a valid MongoDB connection string.
-4. run yarn tsc
-5. run yarn start
+5. run yarn tsc
+6. run yarn start
    This will start the server and listen for incoming requests.
-```
-
-## To Test the Server endpoints:
-```
-1. run yarn test or yarn test --watchAll  
+7. run yarn test or yarn test --watchAll  
    The "--watchAll" flag tells Jest to run all tests in the project and to continue watching for file changes to re-run the tests automatically.
 ```
 
