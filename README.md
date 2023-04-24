@@ -2,27 +2,32 @@ TThis Project is a URL shortening service where you enter a URL such as https://
 
 
 
-### To run and test the code, follow these steps:
+`**To run and test the code, follow these steps:**`
 ```
 1. Clone the repository from GitHub:
 git clone https://github.com/maximmajor/url-shortening-service.git 
+
 2. on your terminal, cd into the server directory (cd server)
-3. run yarn to Install dependencies:
+
+3. run `** yarn **` to Install dependencies:
+
 4. Set environment variables:
    Create a .env file at the root of the project directory and add the following environment variables:
    MONGODB_URI=<mongodb-uri> 
    Replace <mongodb-uri> with a valid MongoDB connection string.
-5. run yarn tsc
-6. run yarn start
+
+5. run `** yarn tsc **`
+   This compiles the TypeScript code into JavaScript code. and create a dist folder where it is stored.
+
+6. run `** yarn start **`
    This will start the server and listen for incoming requests.
 
    To run the test cases
-1. run yarn test or yarn test --watchAll  
-   The "--watchAll" flag tells Jest to run all tests in the project and to continue watching for file changes to re-run the tests automatically.
+1. run `** yarn test **`
 ```
 
 
-###                         TO INTERACT WITH THE SERVER:
+`**                         TO INTERACT WITH THE SERVER:**`
 ```
 Once the server is running, you can interact with it using a tool like Postman or a browser extension. Here are some of the requests:
 1. Encode a URL:
@@ -46,7 +51,7 @@ Once the server is running, you can interact with it using a tool like Postman o
    GET http://localhost:<port-number>/:urlpath
 ```
 
-### Explanation of each endpoint 
+`** Explanation of each endpoint **`
 ```
 1. router.post('/encode'): 
    This endpoint is used to encode a long URL into a short URL. It is a POST request that takes a long URL in the request body and returns a JSON response containing the short URL.
@@ -92,7 +97,7 @@ Once the server is running, you can interact with it using a tool like Postman o
 │       └── shortLink.test.ts
 └──
 ```
-### Breakdown of what each folder and file contains:
+`** Breakdown of what each folder and file contains: **`
 ```
 1. src/: 
    This directory contains all the source code for the project.
