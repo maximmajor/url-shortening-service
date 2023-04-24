@@ -56,7 +56,7 @@ class shortLinkController {
         res.status(404).json({ error: 'Short URL not found' });
         return
       }
-      res.json({ originalUrl: urlStat.originalUrl, shortUrl: urlStat.shortUrl, shortUrlPath: urlStat.shortUrlPath, createdAt: urlStat.createdAt, updatedAt: urlStat.updatedAt });
+      res.json({ originalUrl: urlStat.originalUrl, shortUrl: urlStat.shortUrl, shortUrlPath: urlStat.shortUrlPath, numberOfClicks: urlStat.numberOfClicks, createdAt: urlStat.createdAt.toDateString(), updatedAt: urlStat.updatedAt.toDateString() });
     } catch (err) {
       console.error(err);
       res.status(500).json({ error: 'Internal server error' });
@@ -72,11 +72,11 @@ class shortLinkController {
         return
       }
       const urlStat = await this.shortLinkRepository.shortUrlPart(urlpath);
-
       if (!urlStat) {
         res.status(404).json({ error: 'Short URL not found' });
         return
       }
+      await this.shortLinkRepository.findOneAndUpdateClicks(urlStat._id, urlStat.numberOfClicks + 1);
       res.redirect(urlStat.originalUrl)
     } catch (err) {
       res.status(500).json({ error: 'Internal server error' });

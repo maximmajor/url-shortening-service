@@ -1,5 +1,5 @@
 import mongoose from 'mongoose';
-import { IShortLink } from '../interfaces/shortLinkModel';
+import { IShortLink } from '../interfaces/ModelInterface';
 
 const shortLinkSchema = new mongoose.Schema<IShortLink>(
     { 
@@ -17,6 +17,11 @@ const shortLinkSchema = new mongoose.Schema<IShortLink>(
             type: String,
             trim: true,
             unique: true,
+        },
+        numberOfClicks: {
+            type: Number,
+            default: 0
+           
         },
 
     },

@@ -1,4 +1,4 @@
-import IShortLink from "./shortLinkModel";
+import IShortLink from "./ModelInterface";
 
 interface IShortLinkRepository {
     findOneByOriginalUrl(originalUrl: string): Promise<IShortLink | null>;
