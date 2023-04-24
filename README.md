@@ -1,6 +1,10 @@
 This Project is a URL shortening service where you enter a URL such as https://indicina.co and it returns a short URL such as http://short.est/GeAi9K. Visiting the shortened URL should redirect the user to the long URL. Using the example above, visiting http://short.est/GeAi9K should redirect the user to https://indicina.co.
 
 ```
+
+
+
+
 To run and test the code, follow these steps:
 
 1. Clone the repository from GitHub:
@@ -14,6 +18,7 @@ To run and test the code, follow these steps:
    Create a .env file at the root of the project directory and add the following environment variables:
    MONGODB_URI=<mongodb-uri>
    Replace <mongodb-uri> with a valid MongoDB connection string.
+   check .env.example, I already have a "mongodb-uri" there, you can use it. its mainly for testing purpose.
 
 5. run yarn tsc
    (This compiles the TypeScript code into JavaScript code. and create a dist folder where it is stored.)
@@ -21,9 +26,13 @@ To run and test the code, follow these steps:
 6. run yarn start
    (This will start the server and listen for incoming requests.)
 
-   To run the test cases
+
+   TO RUN THE TEST CASES
 7. run yarn test
 ```
+
+
+
 
 ```
 TO INTERACT WITH THE SERVER:
@@ -31,25 +40,28 @@ Once the server is running, you can interact with it using a tool like Postman
 or a browser extension. Here are some of the requests:
 
 1. Encode a URL:
-   POST http://localhost:<port-number>/encode
+   POST http://localhost:3000/encode
    Content-Type: application/json
    {
    "originalUrl": "https://indicina.co"
    }
 
 2. Decode a short URL:
-   POST http://localhost:<port-number>/decode
+   POST http://localhost:3000/decode
    Content-Type: application/json
    {
    "shortUrl": "http://localhost:3000/Rc2BJwKwO"
    }
 
 3. Get statistics for a short URL:
-   GET http://localhost:<port-number>/statistic/:urlpath
+   GET http://localhost:3000/statistic/:urlpath
 
 4. Redirect to the original URL:
-   GET http://localhost:<port-number>/:urlpath
+   GET http://localhost:3000/:urlpath
 ```
+
+
+
 
 ```
 Explanation of each endpoint
@@ -67,6 +79,9 @@ Explanation of each endpoint
    This endpoint is used to redirect a short URL to its original long URL. It is a GET request that takes a short URL path parameter and redirects the user to the original long URL.
 ```
 
+
+
+
 ```
 File Structure:
 
@@ -81,9 +96,9 @@ File Structure:
 │   │   ├── routes/
 │   │   │   └── shortLinkRoutes.ts
 │   │   ├── interfaces/
-│   │   │   ├── shortLinkController.ts
-│   │   │   ├── shortLinkRepository.ts
-│   │   │   └── shortLinkModel.ts
+│   │   │   ├── ControllerInterface.ts
+│   │   │   ├── RepositoryInterface.ts
+│   │   │   └── ModelInterface.ts
 │   │   ├── middlewares/
 │   │   │   ├── errorHandlers.ts
 │   │   │   └── HttpException.ts
@@ -96,6 +111,9 @@ File Structure:
 │       └── shortLink.test.ts
 └──
 ```
+
+
+
 
 ```
 Breakdown of what each folder and file contains:
@@ -127,7 +145,7 @@ Breakdown of what each folder and file contains:
 9. interfaces/:
    This sub-directory contains code related to defining data structures, interfaces, types for the feature.
 
-10. shortLinkController.ts, shortLinkRepository.ts, and shortLinkModel.ts:
+10. controllerInterface.ts, RepositoryInterface.ts, and ModelInterface.ts:
     These define the interfaces for the controller, repository, and data model.
 
 11. middlewares/:
@@ -155,6 +173,9 @@ Breakdown of what each folder and file contains:
 18. shortLink.test.ts:
     contains test cases to ensure the short link feature works as expected
 ```
+
+
+
 
 ```
 TECHNOLOGY USE
