@@ -26,7 +26,7 @@ describe('Short Link Controller', () => {
         it('Should Encodes a URL to a shortened URL', async () => {
             const res = await request(app)
                 .post('/encode')
-                .send({ originalUrl: 'https://indicina.co' });
+                .send({ originalUrl: 'google.com' });
             expect(res.status).toBe(200);
             expect(res.body).toHaveProperty('shortUrl');
         });
@@ -43,12 +43,12 @@ describe('Short Link Controller', () => {
         it('Should Decodes a shortened URL to its original URL', async () => {
             const encodeRes = await request(app)
                 .post('/encode')
-                .send({ originalUrl: 'https://indicina.co' });
+                .send({ originalUrl: 'google.com' });
             const res = await request(app)
                 .post('/decode')
                 .send({ shortUrl: encodeRes.body.shortUrl });
             expect(res.status).toBe(200);
-            expect(res.body).toHaveProperty('originalUrl', 'https://indicina.co');
+            expect(res.body).toHaveProperty('originalUrl', 'google.com');
         });
         it('should return an error if shortUrl is missing', async () => {
             const response = await request(app)
@@ -70,11 +70,11 @@ describe('Short Link Controller', () => {
         it('Should Return basic statistic of a short URL path.', async () => {
             const encodeResponse = await request(app)
                 .post('/encode')
-                .send({ originalUrl: 'https://indicina.co' });
+                .send({ originalUrl: 'google.com' });
             const response = await request(app)
                 .get(`/statistic/${encodeResponse.body.shortUrl.split('/').pop()}`);
             expect(response.status).toBe(200);
-            expect(response.body.originalUrl).toBe('https://indicina.co');
+            expect(response.body.originalUrl).toBe('google.com');
             expect(response.body.shortUrl).toBe(encodeResponse.body.shortUrl);
             expect(response.body.shortUrlPath).toBeDefined();
             expect(response.body.createdAt).toBeDefined();
@@ -98,12 +98,12 @@ describe('Short Link Controller', () => {
         it('should redirect to the original URL', async () => {
             const response = await request(app)
                 .post('/encode')
-                .send({ originalUrl: 'https://indicina.co' });
+                .send({ originalUrl: 'google.com' });
             const shortUrl = response.body.shortUrl;
             const redirectResponse = await request(app)
                 .get(`/${shortUrl.split('/').pop()}`)
                 .expect(302);
-            expect(redirectResponse.header.location).toBe('https://indicina.co');
+            expect(redirectResponse.header.location).toBe('google.com');
         });
 
         it('should return a 404 error for an invalid short URL', async () => {
