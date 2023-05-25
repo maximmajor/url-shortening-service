@@ -1,4 +1,4 @@
-This Project is a URL shortening service where you enter a URL such as https://indicina.co and it returns a short URL such as http://short.est/GeAi9K. Visiting the shortened URL should redirect the user to the long URL. Using the example above, visiting http://short.est/GeAi9K should redirect the user to https://indicina.co.
+This Project is a URL shortening service where you enter a URL such as https://google.com and it returns a short URL such as http://short.est/GeAi9K. Visiting the shortened URL should redirect the user to the long URL. Using the example above, visiting http://short.est/GeAi9K should redirect the user to https://google.com.
 
 ```
 
@@ -18,7 +18,7 @@ To run and test the code, follow these steps:
    Create a .env file at the root of the project directory and add the following environment variables:
    MONGODB_URI=<mongodb-uri>
    Replace <mongodb-uri> with a valid MongoDB connection string.
-   check .env.example, I already have a "mongodb-uri" there, you can use it. its mainly for testing purpose.
+   
 
 5. run yarn tsc
    (This compiles the TypeScript code into JavaScript code. and create a dist folder where it is stored.)
@@ -43,7 +43,7 @@ or a browser extension. Here are some of the requests:
    POST http://localhost:3000/encode
    Content-Type: application/json
    {
-   "originalUrl": "https://indicina.co"
+   "originalUrl": "https://google.com"
    }
 
 2. Decode a short URL:
